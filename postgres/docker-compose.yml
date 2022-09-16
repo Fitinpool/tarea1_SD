@@ -1,0 +1,11 @@
+version: '3.8'
+
+services:
+  postgresql-master:
+    image: 'bitnami/postgresql:latest'
+    ports:
+      - '5432'
+    environment:
+      - POSTGRESQL_USERNAME=user
+      - POSTGRESQL_PASSWORD=user
+      - POSTGRESQL_DATABASE=tarea1
