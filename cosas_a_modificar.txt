@@ -1,7 +1,22 @@
-desde terminal correr docker-compose up y se abre servidores de postgres y redis
+desde terminal meterse en carpeta docker y correr docker-compose up y se abre servidores de postgres y redis
 
-en la carpeta tarea-node archivo postgres debes cambiar la IP por la que se habra en tu contenedor
+en la carpeta tarea-server ejecutar npm i y en el archivo postgres.js debes cambiar la IP por la que se habra en tu contenedor (docker inspect ID_CONTENEDOR)
 
-desde terminal tarea-node ejecutar npm start para iniciar el servidor
+desde terminal tarea-server ejecutar npm start para iniciar el servidor
 
-una vez todo arriba ejecutar en la carpeta crawler ./commansd.sh y los datos se iran subiendo solo
+en la carpeta tarea-client ejecutar npm i y en el archivo redis.js debes cambiar la IP por la que se habra en tu contenedor (docker inspect ID_CONTENEDOR) SON 3 REDIS POR LO QUE SON 3 IP
+
+desde terminal tarea-client ejecutar npm start para iniciar el servidor y empezar a hacer consultas
+
+desde terminal probar 
+
+curl --location --request GET 'http://localhost:3000/crawler'
+
+curl --location --request GET 'http://localhost:3000/crawler/id_a_consultar'
+
+EN TEORIA ESTA LISTO DORMIRE HASTA LAS 11 AM ASI QUE OJALA FUNCIONE DE UNA 
+OJO HAY QUE SUBIR EL ARCHIVO AL POSTGRES Si esta en formato csv busca el comando copy si no, no sé suerte
+
+SI puedes empieza con el informe para empezar a avanzar en eso y donde estoy el video se subira el dia del pene, asi que si te funciona la cosa altiro haz el video si tienes dudas a las 11 despierto
+
+TODO ESTO SUPONIENDO QUE TE LEVANTAS TEMPRANO LAPTM
