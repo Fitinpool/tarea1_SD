@@ -1,15 +1,15 @@
 const {createClient} = require('redis');
 
 const client1 = createClient({
-    url: 'redis://:master1234@172.18.0.3:6379'
+    url: 'redis://:master1234@172.18.0.3:6379' //ip contendor maestro
 });
 
 const client2 = createClient({
-    url: 'redis://:replica1234@172.18.0.4:6379'
+    url: 'redis://:replica1234@172.18.0.4:6379' //ip contendor esclavo
 });
 
 const client3 = createClient({
-    url: 'redis://:replica1234@172.18.0.5:6379'
+    url: 'redis://:replica1234@172.18.0.5:6379' //ip contendor esclavo
 });
 
 client1.on('error', (err) => console.log('Redis Client Error', err));

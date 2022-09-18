@@ -20,44 +20,28 @@ const TareaServicios = grpc.loadPackageDefinition(packageDefinition).TareaServic
 
 
 const clientService = new TareaServicios(
-    "grpc_server:8000",
+    "127.0.0.1:50051",
     grpc.credentials.createInsecure()
-);
-
-app.get("/url/?", async (req, res) => {
-
-    const {title, description, keywords, url} = req.query
-
-    const datos = {
-        title,
-        description,
-        keywords,
-        url
-    }
-
-    const query = await postgres`
-    insert into crawler ${
-        postgres(datos, 'title', 'description', 'keywords', 'url')
-    }
-    `;
-    res.send('Listo');
-})
+  );
 
 app.get('/crawler', async (req, res) => {
 
     const cache = await client1.get("crawler")
     if(cache)
     {
+        console.log('Cache!!')
         res.json(JSON.parse(cache));
     }
     else
     {
-        clientService.GetAll((error,items) =>{
+        console.log('Consultando backend!!')
+        clientService.GetAll(null, (error,items) =>{
             if(error){
                 res.status(400).json(error);
             }
             else{
                 data = JSON.stringify(items)
+                client1.set('crawler', data)
                 res.json(items);
             }
         })
@@ -70,16 +54,19 @@ app.get('/crawler/:id', async (req, res) => {
     const cache = await client1.get(req.params.id)
     if(cache)
     {
+        console.log('Cache!!')
         res.json(JSON.parse(cache));
     }
     else
     {
-        clientService.Get(req.params.id, (error,items) =>{
+        console.log('Consultando backend!!')
+        clientService.Get({id : req.params.id}, (error,items) =>{
             if(error){
                 res.status(400).json(error);
             }
             else{
                 data = JSON.stringify(items)
+                client1.set(req.params.id, data)
                 res.json(items);
             }
         })

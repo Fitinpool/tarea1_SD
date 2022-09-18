@@ -2,7 +2,7 @@ syntax = "proto3";
 
 service TareaServicios {
     rpc GetAll (Nada) returns (Urls) {}
-    rpc Get (UrlId) returns (Url) {}
+    rpc Get (UrlId) returns (Urls) {}
 }
 
 message Nada {}
@@ -16,7 +16,7 @@ message Url {
 }
 
 message Urls {
-    repeated Url customers = 1;
+    repeated Url urls = 1;
 }
 
 message UrlId {

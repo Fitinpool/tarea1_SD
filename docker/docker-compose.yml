@@ -11,6 +11,7 @@ services:
         - POSTGRESQL_DATABASE=tarea1
       volumes:
         - ../postgres/schema.sql:/docker-entrypoint-initdb.d/create_schema.sql
+        - ../postgres/data.sql:/docker-entrypoint-initdb.d/data.sql
 
   redis-master:
     image: 'bitnami/redis:7.0.4-debian-11-r23'
