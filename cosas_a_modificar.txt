@@ -1,0 +1,7 @@
+desde terminal correr docker-compose up y se abre servidores de postgres y redis
+
+en la carpeta tarea-node archivo postgres debes cambiar la IP por la que se habra en tu contenedor
+
+desde terminal tarea-node ejecutar npm start para iniciar el servidor
+
+una vez todo arriba ejecutar en la carpeta crawler ./commansd.sh y los datos se iran subiendo solo
