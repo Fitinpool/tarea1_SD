@@ -31,3 +31,8 @@ Para la consulta de un url especifico (con la sql de prueba se tiene hasta 220 I
 ```sh
 curl --location --request GET 'http://localhost:3000/crawler/ID' -w "Tiempo: %{time_starttransfer} segundos\n"
 ```
+
+Video con instalacion : 
+```sh
+https://www.youtube.com/watch?v=naEt_TLM8LY
+```
